@@ -1,0 +1,25 @@
+{
+  "name": "itunescord",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "keywords": [
+    "BuckleScript",
+    "ReasonML",
+    "Discord",
+    "iTunes"
+  ],
+  "author": "Robert Paul",
+  "license": "MIT",
+  "devDependencies": {
+    "bs-platform": "^2.1.0"
+  },
+  "dependencies": {
+    "discord-rpc": "^3.0.0-beta.8",
+    "playback": "^0.2.0",
+    "reason": "^3.0.2"
+  }
+}

@@ -15,15 +15,24 @@ var rpc = new DiscordRpc.Client({
 rpc.login(appClient);
 
 function onReady() {
-  Playback.setPollRate(15000);
   Playback.on("playing", (function (data) {
           var song = data.name;
           var artist = data.artist;
           return rpc.setActivity({
-                      details: "🎵 " + (String(song) + ""),
-                      state: "👤 by " + (String(artist) + " "),
+                      details: "🎵 Listening to",
+                      state: "" + (String(song) + (" by " + (String(artist) + " "))),
                       largeImageKey: appImage
                     });
+        }));
+  Playback.on("paused", (function (data) {
+          var song = data.name;
+          var artist = data.artist;
+          rpc.setActivity({
+                details: "Paused...",
+                state: "" + (String(song) + (" by " + (String(artist) + " "))),
+                largeImageKey: appImage
+              });
+          return /* () */0;
         }));
   return /* () */0;
 }

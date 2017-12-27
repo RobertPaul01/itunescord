@@ -22,6 +22,7 @@ type songData = Js.t({.
 
 [@bs.module "discord-rpc"] [@bs.new] external client : clientData => rpcObj = "Client";
 [@bs.module "playback"] external onPlayback : (string, songData => unit) => unit = "on"; 
+[@bs.module "playback"] external setPollRate : int => unit = "setPollRate";
 
 let appClient = "395127794029428736";
 let appImage = "itunes_logo_large";
@@ -29,13 +30,13 @@ let rpc = client({"transport": "ipc"});
 rpc##login(appClient);
 
 let onReady = () => {
+    setPollRate(15000);
     onPlayback("playing", data => {
         let song = data##name;
         let artist = data##artist;
-        let album = data##album;
         rpc##setActivity({ 
             "details": {j|🎵 $song|j},
-            "state": {j|👤 $artist - $album|j},
+            "state": {j|👤 by $artist |j},
             "largeImageKey": appImage 
         });
     });

@@ -27,12 +27,11 @@ function onReady() {
   Playback.on("paused", (function (data) {
           var song = data.name;
           var artist = data.artist;
-          rpc.setActivity({
-                details: "Paused...",
-                state: "" + (String(song) + (" by " + (String(artist) + " "))),
-                largeImageKey: appImage
-              });
-          return /* () */0;
+          return rpc.setActivity({
+                      details: "Paused...",
+                      state: "" + (String(song) + (" by " + (String(artist) + " "))),
+                      largeImageKey: appImage
+                    });
         }));
   return /* () */0;
 }

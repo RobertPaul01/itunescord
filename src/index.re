@@ -46,7 +46,6 @@ let onReady = () => {
             "state": {j|$song by $artist |j},
             "largeImageKey": appImage 
         });
-        ();
     });
 };
 

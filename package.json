@@ -10,14 +10,12 @@
     "clean": "bsb -clean-world"
   },
   "keywords": [
-    "BuckleScript",
-    "ReasonML",
     "Discord",
     "iTunes"
   ],
   "author": "Robert Paul",
   "license": "MIT",
-  "main": "src/index.bs.js",
+  "main": "lib/js/Index.bs.js",
   "devDependencies": {
     "bs-platform": "^2.1.0"
   },
